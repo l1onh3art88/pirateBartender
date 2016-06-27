@@ -1,3 +1,8 @@
+#Bartender asks for users' preference in their drink and then creates one 
+#usings ingredients based on their preference. Bartender will continue to serve
+#until users no longer want another drink
+
+
 import sys
 import random
 
@@ -16,6 +21,7 @@ ingredients = {
     "sweet": ["sugar cube", "spoonful of honey", "spash of cola"],
     "fruity": ["slice of orange", "dash of cassis", "cherry on top"],
 }
+
 preferences = {}
 def survey():
     """Asks users how they prefer their drinks"""
@@ -32,9 +38,10 @@ def drinkBuilder(preferences):
     for ingredient in ingredients:
         if preferences[ingredient] == True:
             print(random.choice(ingredients.get(ingredient)))
-    
+
 if __name__ == '__main__':
-    survey()
-    drinkBuilder(preferences)
+    while input("Do you want a drink?\n") in ['y', 'yes']:    
+        survey()
+        drinkBuilder(preferences)
         
     
